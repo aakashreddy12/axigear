@@ -1,11 +1,11 @@
 services:
   - type: web
     name: axigear
-    env: node
-    plan: free
-    buildCommand: npm install && npm run build
-    startCommand: npm start
+    runtime: static
+    buildCommand: npm install && npm run deploy-build
+    staticPublishPath: ./out
+    pullRequestPreviewsEnabled: true
+    autoDeploy: true
     envVars:
       - key: NODE_ENV
-        value: production
-    autoDeploy: true 
+        value: production 
