@@ -1,26 +1,91 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --foreground-rgb: 0, 0, 0;
+  --background-rgb: 255, 255, 255;
+  --primary-color: 37, 99, 235;
+  --primary-dark: 29, 78, 216;
+  --secondary-color: 107, 114, 128;
+  --accent-color: 14, 165, 233;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  color: rgb(var(--foreground-rgb));
+  background: rgb(var(--background-rgb));
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Focus styles for accessibility */
+*:focus-visible {
+  outline: 2px solid rgb(var(--primary-color));
+  outline-offset: 2px;
+}
+
+@layer components {
+  .btn-primary {
+    @apply rounded-md bg-blue-600 px-5 py-2.5 text-white font-medium relative overflow-hidden shadow-sm;
+  }
+  
+  .btn-primary::before {
+    @apply content-[''] absolute inset-0 bg-blue-700 translate-y-full transition-transform duration-300 ease-in-out;
+  }
+  
+  .btn-primary:hover::before {
+    @apply translate-y-0;
+  }
+  
+  .btn-primary span {
+    @apply relative z-10 transition-all duration-300;
+  }
+  
+  .btn-secondary {
+    @apply rounded-md bg-gray-100 px-5 py-2.5 text-gray-800 font-medium hover:bg-gray-200 transition-all duration-300 border border-gray-300 shadow-sm hover:shadow;
+  }
+  
+  .section-padding {
+    @apply py-16 md:py-24;
+  }
+  
+  .container-custom {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+  
+  /* Card hover effects */
+  .hover-card {
+    @apply transition-all duration-300 ease-in-out hover:shadow-lg hover:-translate-y-1;
+  }
+  
+  /* Link hover effects */
+  .link-hover {
+    @apply relative text-blue-600;
+  }
+  
+  .link-hover::after {
+    @apply content-[''] absolute left-0 bottom-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 ease-out;
+  }
+  
+  .link-hover:hover::after {
+    @apply w-full;
+  }
+  
+  /* Image hover zoom effect */
+  .img-hover-zoom {
+    @apply overflow-hidden;
+  }
+  
+  .img-hover-zoom img {
+    @apply transition-transform duration-300 ease-in-out hover:scale-105;
+  }
+  
+  /* Form input focus effects */
+  .input-focus {
+    @apply transition-all duration-200 border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/25 rounded-md;
+  }
 }
