@@ -2,7 +2,7 @@ services:
   - type: web
     name: axigear
     runtime: static
-    buildCommand: npm install && npm run deploy-build
+    buildCommand: echo "Using pre-built files from repository"
     staticPublishPath: ./out
     pullRequestPreviewsEnabled: true
     autoDeploy: true
