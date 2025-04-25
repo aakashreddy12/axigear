@@ -10,9 +10,10 @@
   "sameAs": [],
   "address": {
     "@type": "PostalAddress",
-    "streetAddress": "Undi Road",
-    "addressLocality": "Bhimavaram",
-    "addressRegion": "West Godavari District",
+    "streetAddress": "Plot no.102, 103, Sri Krishna Vihar, Mathrusri Nagar",
+    "addressLocality": "Serilingampally",
+    "addressRegion": "Telangana",
+    "postalCode": "500049",
     "addressCountry": "India"
   },
   "department": [
